@@ -1,0 +1,17 @@
+.DS_Store
+*.local
+.env
+.env.*
+
+# Frontend
+frontend/node_modules
+frontend/dist
+
+# Backend
+backend/.venv
+backend/__pycache__
+*.pyc
+.pytest_cache
+
+# Collected data (local); remove this line if you want data in git
+data/

@@ -1,0 +1,178 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 13px;
+  --font-family-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* EMG Station Color Tokens */
+  --bg-app: #070a10;
+  --bg-surface: #0f141c;
+  --bg-surface-translucent: rgba(18, 22, 30, 0.72);
+
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.10);
+
+  --text-primary: #e8ecf4;
+  --text-muted: #8b95a8;
+
+  --accent-primary: #4d8fff;
+  --accent-primary-hover: #6ba3ff;
+
+  --state-success: #3ecf8e;
+  --state-warning: #f5a524;
+  --state-danger: #f2556a;
+
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-series-raw: #5a99d4;
+  --chart-series-envelope: #f5a524;
+
+  /* Standard mappings */
+  --background: var(--bg-app);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface-translucent);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #ffffff;
+  --secondary: rgba(77, 143, 255, 0.15);
+  --secondary-foreground: var(--accent-primary);
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--accent-primary);
+  --accent-foreground: #ffffff;
+  --destructive: var(--state-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--border-subtle);
+  --input: var(--border-medium);
+  --input-background: rgba(255, 255, 255, 0.03);
+  --switch-background: rgba(255, 255, 255, 0.15);
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-normal: 400;
+  --ring: var(--accent-primary);
+  --chart-1: var(--chart-series-raw);
+  --chart-2: var(--chart-series-envelope);
+  --chart-3: var(--state-success);
+  --chart-4: var(--state-warning);
+  --chart-5: var(--state-danger);
+  --radius: 0.75rem;
+  --radius-card: 0.875rem;
+  --radius-input: 0.5rem;
+}
+
+@theme inline {
+  /* Standard Tailwind color mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* EMG-specific color mappings */
+  --color-bg-app: var(--bg-app);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-translucent: var(--bg-surface-translucent);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-medium: var(--border-medium);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-hover: var(--accent-primary-hover);
+  --color-state-success: var(--state-success);
+  --color-state-warning: var(--state-warning);
+  --color-state-danger: var(--state-danger);
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-series-raw: var(--chart-series-raw);
+  --color-chart-series-envelope: var(--chart-series-envelope);
+
+  /* Radius tokens */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family-sans);
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
